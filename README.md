@@ -38,13 +38,12 @@ project/
 |    |--  |-- backup_manager.py
 |    |-- data/ # Folder berisi data data network device, contoh isi folder berupa
 |    |--  |-- ip_addresses.txt
-|    |--  backups/ # Folder berisi backup - backup yang akan dibikin, folder ini akan di-gitignore
 ```
 ### Backup Directory Structure
 Directory backup akan memiliki struktur seperti berikut
 ```
 project/
-|-- backups/
+|-- backups/ # folder berisi backup, folder akan di gitignore
 |--    |-- [year]/
 |--    |--  |-- [year]-[month]/
 |--    |--  |--  |-- [year]-[month]-[date]/
