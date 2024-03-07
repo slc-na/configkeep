@@ -8,7 +8,4 @@ class MikrotikDevice(_NetworkDevice):
     def getConfig(self, connection: BaseConnection) -> str:
         # Solusi sementara untuk mikrotik, terutama device AP
         # Kedepannya boleh diganti karena kemungkinan kecil bisa ga ke-backup
-        try:
-            return connection.send_command("/export")
-        except _ReadTimeout:
-            return connection.send_command_timing("/export")
+        return connection.send_command_timing("/export")
