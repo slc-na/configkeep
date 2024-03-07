@@ -2,8 +2,6 @@ from .__network_device import NetworkDevice
 from .__network_device_type import NetworkDeviceType
 
 class NetworkDeviceBuilder:
-    __networkDevice: NetworkDevice
-
     def __init__(self, device_type: NetworkDeviceType):
         self.__networkDevice = NetworkDevice(device_type)
 
