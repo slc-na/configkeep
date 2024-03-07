@@ -1,8 +1,8 @@
-from netmiko.exceptions import ReadTimeout
+from netmiko.exceptions import ReadTimeout as _ReadTimeout
 
-from .__network_device import NetworkDevice
+from ._network_device import NetworkDevice as _NetworkDevice
 
-class MikrotikDevice(NetworkDevice):
+class MikrotikDevice(_NetworkDevice):
     from netmiko import BaseConnection
 
     def getConfig(self, connection: BaseConnection) -> str:
@@ -10,5 +10,5 @@ class MikrotikDevice(NetworkDevice):
         # Kedepannya boleh diganti karena kemungkinan kecil bisa ga ke-backup
         try:
             return connection.send_command("/export")
-        except ReadTimeout:
+        except _ReadTimeout:
             return connection.send_command_timing("/export")

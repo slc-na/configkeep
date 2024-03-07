@@ -1,8 +1,8 @@
-from abc import ABC, abstractmethod
+import abc as _abc
 
-from .__network_device_type import NetworkDeviceType
+from ._network_device_type import NetworkDeviceType
 
-class NetworkDevice(ABC):
+class NetworkDevice(_abc.ABC):
     from netmiko import BaseConnection
     
     def __init__(self, device_type: NetworkDeviceType):
@@ -14,7 +14,7 @@ class NetworkDevice(ABC):
         self.port = None
         self.secret = None
     
-    @abstractmethod
+    @_abc.abstractmethod
     def getConfig(self, net_connect: BaseConnection) -> str:
         pass
 
