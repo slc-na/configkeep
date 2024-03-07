@@ -17,8 +17,14 @@ Lakukan setup sesuai step dibawah
 * Masukan credential berupa username dan password pada file `.env`.
   ```.env
   # Contoh
+  # Username active directory untuk login ke network device
   USERNAME=PB23-1
+  # Password active directory untuk login ke network device
   PASSWORD=yuri<3
+  # Username yang dipakai untuk login ke beberapa network device
+  NETWORK_DEVICE_USERNAME=admin
+  # Password yang dipakai untuk login ke beberapa network device dan password untuk enable device cisco
+  NETWORK_DEVICE_PASSWORD=!yuri!
   ```
 
 ## Coding Convention
