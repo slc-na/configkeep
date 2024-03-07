@@ -1,7 +1,6 @@
-from .__network_device import NetworkDevice
-from utils.constants import NETWORK_DEVICE_PASSWORD
+from ._network_device import NetworkDevice as _NetworkDevice
 
-class CiscoDevice(NetworkDevice):
+class CiscoDevice(_NetworkDevice):
     from netmiko import BaseConnection
 
     def getConfig(self, connection: BaseConnection) -> str:

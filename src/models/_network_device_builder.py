@@ -1,15 +1,15 @@
-from .__network_device import NetworkDevice
-from .__cisco_device import CiscoDevice
-from .__mikrotik_device import MikrotikDevice
-from .__network_device_type import NetworkDeviceType
+from ._network_device import NetworkDevice as _NetworkDevice
+from ._cisco_device import CiscoDevice as _CiscoDevice
+from ._mikrotik_device import MikrotikDevice as _MikrotikDevice
+from ._network_device_type import NetworkDeviceType as _NetworkDeviceType
 
 class NetworkDeviceBuilder:
-    def __init__(self, device_type: NetworkDeviceType):
+    def __init__(self, device_type: _NetworkDeviceType):
         # Solusi sementara
         if("cisco" in device_type.value):
-            self.__networkDevice = CiscoDevice(device_type)
+            self.__networkDevice = _CiscoDevice(device_type)
         else:
-            self.__networkDevice = MikrotikDevice(device_type)
+            self.__networkDevice = _MikrotikDevice(device_type)
 
         # Default values
         self.__networkDevice.port = '22'
@@ -42,5 +42,5 @@ class NetworkDeviceBuilder:
         self.__networkDevice.secret = secret
         return self
     
-    def build(self) -> NetworkDevice:
+    def build(self) -> _NetworkDevice:
         return self.__networkDevice

@@ -1,6 +1,6 @@
-from enum import Enum
+from enum import Enum as _Enum
 
-class NetworkDeviceType(Enum):
+class NetworkDeviceType(_Enum):
     """
     Enum untuk jenis os network device yang dipakai SLC.
 
