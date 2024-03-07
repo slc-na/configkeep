@@ -7,5 +7,5 @@ load_dotenv(__dotenv_path)
 
 USERNAME=os.environ.get('USERNAME')
 PASSWORD=os.environ.get('PASSWORD')
-
-print(os.environ)
+NETWORK_DEVICE_PASSWORD=os.environ.get('NETWORK_DEVICE_PASSWORD')
+NETWORK_DEVICE_USERNAME=os.environ.get('NETWORK_DEVICE_USERNAME')
