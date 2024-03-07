@@ -6,26 +6,31 @@ class NetworkDeviceBuilder:
         self.__networkDevice = NetworkDevice(device_type)
 
         # Default values
-        self.__networkDevice.__port = '22'
-        self.__networkDevice.__secret = ''
+        self.__networkDevice.port = '22'
+        self.__networkDevice.secret = ''
+        self.__networkDevice.host = None
+        self.__networkDevice.username = None
+        self.__networkDevice.password = None
 
     def set_host(self, host: str) -> 'NetworkDeviceBuilder':
-        self.__networkDevice.__host = host
+        self.__networkDevice.host = host
         return self
     
     def set_username(self, username: str) -> 'NetworkDeviceBuilder':
-        self.__networkDevice.__username = username
+        self.__networkDevice.username = username
         return self
     
     def set_password(self, password: str) -> 'NetworkDeviceBuilder':
-        self.__networkDevice.__password = password
+        self.__networkDevice.password = password
         return self
     
     def set_port(self, port: str) -> 'NetworkDeviceBuilder':
-        self.__networkDevice.__port = port
+        self.__networkDevice.port = port
+        return self
     
     def set_secret(self, secret: str) -> 'NetworkDeviceBuilder':
-        self.__networkDevice.__secret = secret
+        self.__networkDevice.secret = secret
+        return self
     
     def build(self) -> NetworkDevice:
         return self.__networkDevice
