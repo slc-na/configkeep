@@ -1,4 +1,7 @@
 from enum import Enum as _Enum
+from logger import LogService
+
+log = LogService()
 
 class NetworkDeviceType(_Enum):
     """
@@ -27,6 +30,6 @@ class NetworkDeviceType(_Enum):
         }
 
         if translators.get(string) is None:
-            raise ValueError(f"device type \"{string}\" not found. Available keys: {", ".join([i for i in translators.keys()])}")
+            raise log.error(f"device type \"{string}\" not found. Available keys: {', '.join([i for i in translators.keys()])}")
 
         return translators[string]

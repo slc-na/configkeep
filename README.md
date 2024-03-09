@@ -9,10 +9,10 @@
 ### Setup
 Lakukan setup sesuai step dibawah
 * Instalasi Python (version 3.8.x or later)
+* Instalasi Rust (version 1.63.0 or later)
 * Jalankan command berikut pada terminal (pastikan sudah memasukan bin python kedalam PATH)
   ```
-  $ pip install netmiko
-  $ pip install python-dotenv
+  $ pip install -r requirements.txt
   ```
 * Masukan credential berupa username dan password pada file `.env`.
   ```.env
@@ -41,7 +41,8 @@ project/
 |    |--  |-- time.py
 |    |-- backup_service/ # Folder berisi hal-hal yang berkaitan dengan sistem backup, contoh isi folder berupa
 |    |--  |-- __init__.py
-|    |--  |-- backup_manager.py
+|    |--  |-- backup_service.py
+|    |--  |-- remove_config.py
 |    |-- data/ # Folder berisi data data network device, contoh isi folder berupa
 |    |--  |-- ip_addresses.txt
 ```
