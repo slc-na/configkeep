@@ -8,7 +8,7 @@ def ensure_dir_exists(path: str):
     if(not _os.path.exists(path)):
         _os.makedirs(path)
 
-def get_device_from_csv(source: str) -> list[_m.NetworkDevice]:
+def get_device_from_csv(source: str) -> 'list[_m.NetworkDevice]':
     df = _pd.read_csv(source)
 
     result: list[_m.NetworkDevice] = []

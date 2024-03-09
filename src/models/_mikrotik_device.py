@@ -1,5 +1,3 @@
-from netmiko.exceptions import ReadTimeout as _ReadTimeout
-
 from ._network_device import NetworkDevice as _NetworkDevice
 
 class MikrotikDevice(_NetworkDevice):

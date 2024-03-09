@@ -1,12 +1,16 @@
 from netmiko import ConnectHandler as _ConnectHandler
-from netmiko.exceptions import SSHException as _SSHException
+from netmiko.ssh_exception import SSHException as _SSHException
 
 import utils._time as _time
 from utils._file import ensure_dir_exists as _ensure_dir_exists, make_backup as _make_backup
 from models import NetworkDevice as _NetworkDevice
 
+from logger import LogService
+
+log = LogService()
+
 class BackupService:
-    def __init__(self, devices: list[_NetworkDevice]):
+    def __init__(self, devices: 'list[_NetworkDevice]'):
         self.__not_done: list[_NetworkDevice] = devices
     
     def isDone(self):
@@ -22,8 +26,9 @@ class BackupService:
             with _ConnectHandler(**device.toDict()) as net_connect:
                 output = device.getConfig(net_connect)
                 _make_backup(f"{path}/{_time.get_date()}-{device.device_name}.config", output)
+                log.info(f"Backup for {device.device_name} success")
         except _SSHException:
-            print(f"Error occured during connection with network device: {device.device_name} using usernaem {device.username} and password {device.password}, will retry later")
+            log.error(f"Error occured during connection with network device: {device.device_name} using usernaem {device.username} and password {device.password}, will retry later")
             return
 
         self.__not_done.pop(0)
