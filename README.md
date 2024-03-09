@@ -2,8 +2,10 @@
 **ConfigKeep** merupakan sebuah project yang dibuat untuk membackup config-config yang ada pada network device SLC.
 
 **ConfigKeep** memiliki fitur fitur berikut:
-* Autobackup config network device setiap harinya tepat pada pukul `00:00`
+* Autobackup config network device
 * Autodelete backup config network untuk setiap config yang sudah berumur lebih dari 3 bulan (90 hari)
+
+ConfigKeep akan dijalankan harian menggunakan crontab
 
 ## Getting Started
 ### Setup
